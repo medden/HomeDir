@@ -5,7 +5,11 @@ set number
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
-
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set autoindent
+set smartindent
 
 set nobackup		" do not keep a backup file, use versions instead
 set nowritebackup
@@ -33,13 +37,12 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-
-  set autoindent		" always set autoindenting on
-
-
-if exists("did_load_filetypes")
-	finish
-endif
-augroup filetypedetect
-	au! BufRead,BufNewFile *.module setfiletype php
+if has("autocmd")
+" Drupal *.module and *.install files.
+augroup module
+autocmd BufRead,BufNewFile *.module set filetype=php
+autocmd BufRead,BufNewFile *.install set filetype=php
+autocmd BufRead,BufNewFile *.test set filetype=php
 augroup END
+endif
+syntax on
