@@ -46,3 +46,7 @@ autocmd BufRead,BufNewFile *.test set filetype=php
 augroup END
 endif
 syntax on
+
+let mapleader = ","
+nmap <leader>v :tabedit $MYVIMRC<CR>
+nmap <leader>n :set number!<CR>
