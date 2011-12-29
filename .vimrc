@@ -50,3 +50,6 @@ syntax on
 let mapleader = ","
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>n :set number!<CR>
+nmap O[ :bn<CR>
+nmap OZ :bp<CR>
+nmap OY :bd<CR>
