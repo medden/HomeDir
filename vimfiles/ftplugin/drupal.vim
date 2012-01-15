@@ -19,7 +19,7 @@ setl formatoptions+=croql
 "  +l:  Do not break a comment line if it is long before you start.
 
 " Custom SVN blame
-vmap <buffer> gl :<C-U>!svn blame <C-R>=expand("%:P") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+"vmap <buffer> gl :<C-U>!svn blame <C-R>=expand("%:P") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 
 " {{{ @var $DRUPAL_ROOT
 " plugin/drupal.vim defines several useful strings in b:Drupal_info.

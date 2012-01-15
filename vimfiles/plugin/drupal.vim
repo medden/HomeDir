@@ -40,13 +40,13 @@ endif
 syntax on
 
 " When in split screen, map <C-LeftArrow> and <C-RightArrow> to switch panes.
-nn [5C <C-W>w
-nn [5R <C-W>W
+"nn [5C <C-W>w
+"nn [5R <C-W>W
 
 " Custom key mapping
 map <S-u> :redo<cr>
-map <C-n> :tabn<cr>
-map <C-p> :tabp<cr>
+"map <C-n> :tabn<cr>
+"map <C-p> :tabp<cr>
 
 " {{{
 " Everything from here on assumes that autocommands are available.
