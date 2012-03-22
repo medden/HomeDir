@@ -1,0 +1,11 @@
+#!/bin/bash
+# My backup script
+
+tar -pcvzf backup.tar.gz /srv/www/
+
+gpg --cipher-algo aes256 --passphrase-fd 3 -c 3<passphrase.key <backup.tar.gz > backup.gpg
+
+mutt -s "Linode BNET - Files Backup" -a backup.gpg -- meddenbackup@gmail.com < /dev/null
+
+rm backup.gpg
+rm backup.tar.gz
