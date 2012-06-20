@@ -1,3 +1,7 @@
+"  PATHOGEN 
+call pathogen#infect()
+
+
 set nocompatible
 set cpoptions+=$
 set virtualedit=all  
@@ -53,3 +57,15 @@ nmap <leader>n :set number!<CR>
 nmap O[ :bn<CR>
 nmap OZ :bp<CR>
 nmap OY :bd<CR>
+
+
+
+" syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=1
+
+"Fugitive status line
+set statusline+=%{fugitive#statusline()}
