@@ -1,6 +1,7 @@
 "  PATHOGEN 
 call pathogen#infect()
 
+filetype plugin on
 
 set nocompatible
 set cpoptions+=$
@@ -56,9 +57,11 @@ nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>n :set number!<CR>
 nmap O[ :bn<CR>
 nmap OZ :bp<CR>
-nmap OY :bd<CR>
+nmap OY :bd<CR>                                 
 
-
+"nerdcomment
+"map <leader>m |NERDComToggleComment|
+nmap <leader>mm <plug>NERDCommenterComment
 
 " syntastic settings
 set statusline+=%#warningmsg#
@@ -66,6 +69,10 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': ['ruby', 'php', 'css', 'html'],
+                           \ 'passive_filetypes': ['puppet'] }  
+
 
 "Fugitive status line
 set statusline+=%{fugitive#statusline()}
