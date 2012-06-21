@@ -1,12 +1,13 @@
 "  PATHOGEN 
 call pathogen#infect()
 
-filetype plugin on
+filetype plugin indent on
 
 set nocompatible
 set cpoptions+=$
 set virtualedit=all  
 set number
+set cursorline
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -52,16 +53,29 @@ augroup END
 endif
 syntax on
 
+"key mappgins
 let mapleader = ","
+nnoremap ; :
+
+
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>n :set number!<CR>
 nmap O[ :bn<CR>
 nmap OZ :bp<CR>
 nmap OY :bd<CR>                                 
 
+" For when you forget to sudo.. Really Write the file.
+cmap w!! w !sudo tee % >/dev/null
+
+
 "nerdcomment
-"map <leader>m |NERDComToggleComment|
-nmap <leader>mm <plug>NERDCommenterComment
+"nmap <silent><leader>/ :NERDComToggleComment<CR>
+"nmap <leader>mm <plug>NERDCommenterComment
+nmap  <leader>m <plug>NERDCommenterToggle
+
+"nerdtree
+"nmap <leader>o :NERDTree<CR>
+nmap <leader>e :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 
 " syntastic settings
 set statusline+=%#warningmsg#
