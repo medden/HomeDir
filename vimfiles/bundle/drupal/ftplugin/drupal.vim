@@ -41,39 +41,39 @@ if strlen(b:Drupal_info.CORE)
   let &l:tags .= ',' . expand('<sfile>:p:h:h') . '/drupal' . b:Drupal_info.CORE . '.tags'
 endif
 
-if !exists('*s:OpenURL')
+"if !exists('*s:OpenURL')
 
-function s:OpenURL(base)
-  let open = b:Drupal_info.OPEN_COMMAND
-  if open == ''
-    return
-  endif
-  let func =  shellescape(expand('<cword>'))
-  if a:base == 'api.d.o'
-    if strlen(b:Drupal_info.CORE)
-      execute '!' . open . ' http://api.drupal.org/api/search/' .
-	    \ b:Drupal_info.CORE . '/' . func
-    else
-      execute '!' . open . ' http://api.drupal.org/' . func
-    endif
-  else
-    execute '!' . open . ' ' . a:base . func
-  endif
-endfun
+"function s:OpenURL(base)
+"  let open = b:Drupal_info.OPEN_COMMAND
+"  if open == ''
+"    return
+"  endif
+"  let func =  shellescape(expand('<cword>'))
+"  if a:base == 'api.d.o'
+"    if strlen(b:Drupal_info.CORE)
+"      execute '!' . open . ' http://api.drupal.org/api/search/' .
+"	    \ b:Drupal_info.CORE . '/' . func
+"    else
+"      execute '!' . open . ' http://api.drupal.org/' . func
+"    endif
+"  else
+"    execute '!' . open . ' ' . a:base . func
+"  endif
+"endfun
+"
+"endif " !exists('*s:OpenURL')
 
-endif " !exists('*s:OpenURL')
-
-if strlen(b:Drupal_info.OPEN_COMMAND)
-  " Lookup the API docs for a drupal function under cursor.
-  nnoremap <buffer> <LocalLeader>da :silent call <SID>OpenURL('api.d.o')<CR><C-L>
-
-  " Lookup the API docs for a drush function under cursor.
-  nnoremap <buffer> <LocalLeader>dda :silent call <SID>OpenURL('http://api.drush.ws/api/function/')<CR><C-L>
-endif
-
-" Get the value of the drupal variable under cursor.
-nnoremap <buffer> <LocalLeader>dv :execute "!drush vget ".shellescape(expand("<cword>"), 1)<CR>
-
+"if strlen(b:Drupal_info.OPEN_COMMAND)
+"  " Lookup the API docs for a drupal function under cursor.
+"  nnoremap <buffer> <LocalLeader>da :silent call <SID>OpenURL('api.d.o')<CR><C-L>
+"
+"  " Lookup the API docs for a drush function under cursor.
+"  nnoremap <buffer> <LocalLeader>dda :silent call <SID>OpenURL('http://api.drush.ws/api/function/')<CR><C-L>
+"endif
+"
+"" Get the value of the drupal variable under cursor.
+"nnoremap <buffer> <LocalLeader>dv :execute "!drush vget ".shellescape(expand("<cword>"), 1)<CR>
+"
 " PHP specific settings.
 " In ftdetect/drupal.vim we set ft=php.drupal.  This means that the settings
 " here will come after those set by the PHP ftplugins.  In particular, we can
